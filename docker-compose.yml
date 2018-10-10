@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/django/Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - main
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Mysqlpass123
+      - MYSQL_DATABASE=weather
+      - MYSQL_USER=weatheruser
+      - MYSQL_PASSWORD=weather
+    networks:
+      - main
+
+networks:
+  main:
