@@ -87,7 +87,7 @@ DATABASES = {
         'USER': 'weatheruser',
         'PASSWORD': 'weather',
         #'HOST': 'localhost',
-        'HOST': 'db',
+        'HOST': 'django-weather-db',
         'PORT': '3306',
     }
 }
